@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
-
-body {
-  font-family:  "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+@import url('https://db.onlinewebfonts.com/c/98ba452dea7e23c218274c7bc852c1a9?family=PayPal+Sans+Small+Medium+Regular');
+ 
+body{
+    font-family: "PayPal Sans Small Medium Regular", "Helvetica Neue", Arial, sans-serif;
 }
