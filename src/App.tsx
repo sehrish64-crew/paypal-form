@@ -56,7 +56,11 @@ function App() {
     if (resultRef.current === null) return;
 
     htmlToImage
-      .toPng(resultRef.current, { cacheBust: true, pixelRatio: 2 })
+      .toPng(resultRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+        filter: (node) => !node.classList?.contains("exclude-download"), // 👈 ye line important h
+      })
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.download = "paypal-case-details.png";
@@ -70,7 +74,6 @@ function App() {
 
   if (isSubmitted) {
     return (
-      
       <div className="min-h-screen bg-[#101014] flex items-center justify-center p-6">
         <div
           ref={resultRef}
@@ -132,8 +135,8 @@ function App() {
             </div>
           </div>
 
-          {/* Download Button (floating bottom-right) */}
-          <div className="absolute bottom-4 right-4">
+          {/* Download Button (excluded from image) */}
+          <div className="absolute bottom-4 right-4 exclude-download">
             <button
               onClick={handleDownload}
               className="bg-gray-800 p-2 rounded-full hover:bg-gray-700 transition"
